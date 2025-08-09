@@ -538,7 +538,7 @@ https://bs.arectv33.sbs/static/ss11.m3u8
 #EXTVLCOPT:http-user-agent=okhttp/4.12.0
 #EXTVLCOPT:http-referrer=https://twitter.com
 https://bs.arectv33.sbs/static/ss2.m3u8
-#EXTINF:-1,tvg-name="TRT Türk" tvg-country="TR" tvg-id="sssportplus" tvg-logo="https://m.prectv49.sbs/uploads/cache/channel_thumb/uploads/jpg/226d5b2f3ab5c01698dff96b24b14629.jpg" group-title="S Spor",S Sport Plus 1|CF
+#EXTINF:-1,tvg-name="TRT Türk" tvg-country="TR" tvg-id="bhscmpre" tvg-logo="" group-title="S Spor",S Sport Plus 1|CF
 #EXTVLCOPT:http-referrer= https://www.sporcafe6.xyz/
 https://alpha.cf-worker-425f83afed3b98.workers.dev/live/bhscmpre/playlist.m3u8
 #EXTINF:-1 tvg-id="160" tvg-logo="https://m.prectv49.sbs/uploads/cache/channel_thumb/uploads/jpg/226d5b2f3ab5c01698dff96b24b14629.jpg" tvg-name="S Sport Plus" group-title="S Spor",S Sport Plus [HD]
