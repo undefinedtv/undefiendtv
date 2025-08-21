@@ -63,7 +63,7 @@ def fetch_streams(domain, referer):
     return result
 
 def write_m3u(links, filename="selcuk.m3u", referer=""):
-    print(f"\n M3U dosyası güncelleniyor: {filename}")
+    print(f"\nM3U dosyası güncelleniyor: {filename}")
 
     # Mevcut içeriği oku
     try:
@@ -81,7 +81,6 @@ def write_m3u(links, filename="selcuk.m3u", referer=""):
             match = re.search(r'tvg-id="([^"]+)"', line)
             if match:
                 tvg_id = match.group(1)
-                # Güncellenecek kanal bu mu?
                 updated = False
                 for ch, url in links:
                     if ch["id"] == tvg_id:
@@ -92,25 +91,30 @@ def write_m3u(links, filename="selcuk.m3u", referer=""):
                         updated = True
                         break
                 if updated:
-                    i += 3  # Bu kanalın 3 satırı atlanır (info, referrer, url)
-                    continue  # Bir sonraki satıra geç
+                    i += 3  # Mevcut kanalın tüm satırlarını atla
+                    continue
         updated_lines.append(line)
         i += 1
 
-    # Eğer dosyada olmayan yeni kanallar varsa, onları sona ekle
-    existing_ids = {re.search(r'tvg-id="([^"]+)"', l).group(1)
-                    for l in updated_lines if l.startswith("#EXTINF:") and 'tvg-id=' in l}
+    # Mevcut dosyada olmayan yeni kanalları sona ekle
+    existing_ids = set()
+    for l in updated_lines:
+        if l.startswith("#EXTINF:") and 'tvg-id=' in l:
+            match = re.search(r'tvg-id="([^"]+)"', l)
+            if match:
+                existing_ids.add(match.group(1))
+
     for ch, url in links:
         if ch["id"] not in existing_ids:
             updated_lines.append(f'#EXTINF:-1 tvg-id="{ch["id"]}" tvg-name="{ch["name"]}" tvg-logo="{ch["logo"]}" group-title="{ch["group"]}",{ch["name"]}')
             updated_lines.append(f"#EXTVLCOPT:http-referrer={referer}")
             updated_lines.append(url)
 
-    # Dosyayı yeniden yaz (ama sadece güncellenmiş haliyle)
+    # Dosyayı yeniden yaz
     with open(filename, "w", encoding="utf-8") as f:
         f.write("\n".join(updated_lines))
 
-    print(" Güncelleme tamamlandı. Güncellenen kanal sayısı:", len(links))
+    print("Güncelleme tamamlandı. Güncellenen kanal sayısı:", len(links))
 
 def main():
     html, referer = find_working_domain()
