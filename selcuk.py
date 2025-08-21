@@ -63,15 +63,54 @@ def fetch_streams(domain, referer):
     return result
 
 def write_m3u(links, filename="selcuk.m3u", referer=""):
-    print(f"\n M3U dosyası yazılıyor: {filename}")
-    lines = ["#EXTM3U"]
+    print(f"\n M3U dosyası güncelleniyor: {filename}")
+
+    # Mevcut içeriği oku
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            original_lines = f.read().splitlines()
+    except FileNotFoundError:
+        original_lines = ["#EXTM3U"]
+
+    updated_lines = []
+    i = 0
+    while i < len(original_lines):
+        line = original_lines[i]
+
+        if line.startswith("#EXTINF:"):
+            match = re.search(r'tvg-id="([^"]+)"', line)
+            if match:
+                tvg_id = match.group(1)
+                # Güncellenecek kanal bu mu?
+                updated = False
+                for ch, url in links:
+                    if ch["id"] == tvg_id:
+                        # Kanal bilgilerini güncelle
+                        updated_lines.append(f'#EXTINF:-1 tvg-id="{ch["id"]}" tvg-name="{ch["name"]}" tvg-logo="{ch["logo"]}" group-title="{ch["group"]}",{ch["name"]}')
+                        updated_lines.append(f"#EXTVLCOPT:http-referrer={referer}")
+                        updated_lines.append(url)
+                        updated = True
+                        break
+                if updated:
+                    i += 3  # Bu kanalın 3 satırı atlanır (info, referrer, url)
+                    continue  # Bir sonraki satıra geç
+        updated_lines.append(line)
+        i += 1
+
+    # Eğer dosyada olmayan yeni kanallar varsa, onları sona ekle
+    existing_ids = {re.search(r'tvg-id="([^"]+)"', l).group(1)
+                    for l in updated_lines if l.startswith("#EXTINF:") and 'tvg-id=' in l}
     for ch, url in links:
-        lines.append(f'#EXTINF:-1 tvg-id="{ch["id"]}" tvg-name="{ch["name"]}" tvg-logo="{ch["logo"]}" group-title="{ch["group"]}",{ch["name"]}')
-        lines.append(f"#EXTVLCOPT:http-referrer={referer}")
-        lines.append(url)
+        if ch["id"] not in existing_ids:
+            updated_lines.append(f'#EXTINF:-1 tvg-id="{ch["id"]}" tvg-name="{ch["name"]}" tvg-logo="{ch["logo"]}" group-title="{ch["group"]}",{ch["name"]}')
+            updated_lines.append(f"#EXTVLCOPT:http-referrer={referer}")
+            updated_lines.append(url)
+
+    # Dosyayı yeniden yaz (ama sadece güncellenmiş haliyle)
     with open(filename, "w", encoding="utf-8") as f:
-        f.write("\n".join(lines))
-    print(" Tamamlandı. Kanal sayısı:", len(links))
+        f.write("\n".join(updated_lines))
+
+    print(" Güncelleme tamamlandı. Güncellenen kanal sayısı:", len(links))
 
 def main():
     html, referer = find_working_domain()
@@ -86,6 +125,7 @@ def main():
     if streams:
 
         write_m3u(streams, referer=referer)
+        write_m3u(streams, filename="1.m3u", referer=referer)
     else:
         print("Hiçbir yayın alınamadı.")
 
