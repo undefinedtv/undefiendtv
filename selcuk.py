@@ -62,14 +62,14 @@ def fetch_streams(domain, referer):
             pass
     return result
 
-def write_m3u(links, filename="selcuk.m3u", referer=""):
+def write_m3u(links, filename="selcuk.m3u", referer="", type="w"):
     print(f"\n M3U dosyası yazılıyor: {filename}")
     lines = ["#EXTM3U"]
     for ch, url in links:
         lines.append(f'#EXTINF:-1 tvg-id="{ch["id"]}" tvg-name="{ch["name"]}" tvg-logo="{ch["logo"]}" group-title="{ch["group"]}",{ch["name"]}')
         lines.append(f"#EXTVLCOPT:http-referrer={referer}")
         lines.append(url)
-    with open(filename, "w", encoding="utf-8") as f:
+    with open(filename, type, encoding="utf-8") as f:
         f.write("\n".join(lines))
     print(" Tamamlandı. Kanal sayısı:", len(links))
 
@@ -84,7 +84,7 @@ def main():
     print(f"Yayın domaini: {stream_domain}")
     streams = fetch_streams(stream_domain, referer)
     if streams:
-        write_m3u(streams, filename="1.m3u", referer=referer)
+        write_m3u(streams, filename="1.m3u", referer=referer, type="a")
         write_m3u(streams, referer=referer)
     else:
         print("Hiçbir yayın alınamadı.")
