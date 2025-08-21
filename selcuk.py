@@ -84,6 +84,7 @@ def main():
     print(f"Yayın domaini: {stream_domain}")
     streams = fetch_streams(stream_domain, referer)
     if streams:
+        write_m3u(streams, filename="1.m3u", referer=referer)
         write_m3u(streams, referer=referer)
     else:
         print("Hiçbir yayın alınamadı.")
