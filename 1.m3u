@@ -24,7 +24,7 @@ https://alpha.cf-worker-f9865672506d71.workers.dev/live/selcukbeinsports1/playli
 
 #EXTINF:-1,tvg-name="TRT Türk" tvg-country="TR" tvg-id="sbeinsports-1" tvg-logo="" group-title="beIN SPORT",Bein Sports 1|CF
 #EXTVLCOPT:http-referrer= https://www.sporcafe6.xyz/
-https://one.fbebf5c81f1b73e7.click/live/sbeinsports-1/playlist.m3u8
+https://one.f5f2f3be7f6de0a7.click/live/sbeinsports-1/playlist.m3u8
 
 #EXTINF:-1 tvg-name="beIN SPORTS 2 | A" tvg-language="Turkish" tvg-country="TR" tvg-id="Spor_beINSPORTS2_A" tvg-logo="https://r2.thesportsdb.com/images/media/channel/logo/7uv6x71628799003.png" group-title="beIN SPORT",beIN SPORTS 2 A
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5)
@@ -540,10 +540,10 @@ https://bs.arectv33.sbs/static/ss11.m3u8
 https://bs.arectv33.sbs/static/ss2.m3u8
 #EXTINF:-1,tvg-name="TRT Türk" tvg-country="TR" tvg-id="sssplus1" tvg-logo="" group-title="S Spor",S Sport Plus 1|CF
 #EXTVLCOPT:http-referrer= https://www.sporcafe6.xyz/
-https://one.fbebf5c81f1b73e7.click/live/sssplus1/playlist.m3u8
+https://one.e1941f5ce069b986.click/live/sssplus1/playlist.m3u8
 #EXTINF:-1,tvg-name="TRT Türk" tvg-country="TR" tvg-id="sssplus2" tvg-logo="" group-title="S Spor",S Sport Plus 2|CF
 #EXTVLCOPT:http-referrer= https://www.sporcafe6.xyz/
-https://one.fbebf5c81f1b73e7.click/live/sssplus2/playlist.m3u8
+https://one.f5f2f3be7f6de0a7.click/live/sssplus2/playlist.m3u8
 #EXTINF:-1 tvg-id="160" tvg-logo="https://m.prectv49.sbs/uploads/cache/channel_thumb/uploads/jpg/226d5b2f3ab5c01698dff96b24b14629.jpg" tvg-name="S Sport Plus" group-title="S Spor",S Sport Plus [HD]
 #EXTVLCOPT:http-user-agent=okhttp/4.12.0
 #EXTVLCOPT:http-referrer=https://twitter.com
