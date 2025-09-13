@@ -237,7 +237,7 @@ https://alpha.cf-worker-f9865672506d71.workers.dev/live/selcuksmartspor/playlist
 
 #EXTINF:-1,tvg-name="TRT Türk" tvg-country="TR" tvg-id="ssmartspor" tvg-logo="" group-title="Spor",Spor Smart|CF
 #EXTVLCOPT:http-referrer= https://www.sporcafe6.xyz/
-https://di33xdynenrrx.cloudfront.net/live/ssmartspor/playlist.m3u8
+https://dte19m0igxz9j.cloudfront.net/live/ssmartspor/playlist.m3u8
 
 
 
@@ -540,7 +540,7 @@ https://bs.arectv33.sbs/static/ss11.m3u8
 https://bs.arectv33.sbs/static/ss2.m3u8
 #EXTINF:-1,tvg-name="TRT Türk" tvg-country="TR" tvg-id="sssplus1" tvg-logo="" group-title="S Spor",S Sport Plus 1|CF
 #EXTVLCOPT:http-referrer= https://www.sporcafe6.xyz/
-https://di33xdynenrrx.cloudfront.net/live/sssplus1/playlist.m3u8
+https://dte19m0igxz9j.cloudfront.net/live/sssplus1/playlist.m3u8
 #EXTINF:-1,tvg-name="TRT Türk" tvg-country="TR" tvg-id="sssplus2" tvg-logo="" group-title="S Spor",S Sport Plus 2|CF
 #EXTVLCOPT:http-referrer= https://www.sporcafe6.xyz/
 https://di33xdynenrrx.cloudfront.net/live/sssplus2/playlist.m3u8
