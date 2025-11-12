@@ -144,7 +144,7 @@ https://tv.arectv34.sbs/live/bm1.m3u8
 https://alpha.cf-worker-f9865672506d71.workers.dev/live/selcukbeinsportsmax1/playlist.m3u8
 
 #EXTINF:-1,tvg-name="TRT Türk" tvg-country="TR" tvg-id="sbeinsportsmax-1" tvg-logo="" group-title="beIN SPORT",Bein Sports Max1|CF
-#EXTVLCOPT:http-referrer= https://www.sporcafe7.xyz/
+#EXTVLCOPT:http-referrer= https://www.sporcafe6.xyz/
 https://dga1op10s1u3lep.eaf7037ecd540a.click/live/sbeinsportsmax-1/playlist.m3u8
 
 #EXTINF:-1 tvg-name="beIN SPORTS Max 2 | A" tvg-language="Turkish" tvg-country="TR" tvg-id="Spor_beINSPORTSMax2_A" tvg-logo="https://i.imgur.com/t7U20yR.png" group-title="beIN SPORT",beIN SPORTS Max 2 A
