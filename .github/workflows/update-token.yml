@@ -22,7 +22,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add token.txt
-          git add yeni.m3u
+          git add .
           git commit -m "Token otomatik güncelleme: $(date +'%Y-%m-%d %H:%M')"
           git push
