@@ -23,8 +23,34 @@ $streamUrl = $data['Data']['AllChannels'][0]['StreamData']['HlsStreamUrl'];
 if (preg_match('/wmsAuthSign=(.*?)(?:$|&)/', $streamUrl, $matches)) {
     $token = $matches[1];
     file_put_contents('token.txt', $token);
-    echo "Token güncellendi: " . substr($token, 0, 20) . "...";
+    echo "Token güncellendi: " . substr($token, 0, 20) . "...\n";
 } else {
     die('Token bulunamadı!');
+}
+
+// yeni.m3u dosyasını oku
+$m3uFile = 'yeni.m3u';
+if (!file_exists($m3uFile)) {
+    die("Hata: {$m3uFile} dosyası bulunamadı!");
+}
+
+$m3uContent = file_get_contents($m3uFile);
+
+// wmsAuthSign parametresini yeni token ile değiştir
+$updatedContent = preg_replace(
+    '/wmsAuthSign=[^&\s]+/', 
+    'wmsAuthSign=' . $token, 
+    $m3uContent
+);
+
+// Güncellenmiş içeriği dosyaya yaz
+if (file_put_contents($m3uFile, $updatedContent)) {
+    echo "M3U dosyası başarıyla güncellendi!\n";
+    
+    // Kaç tane link güncellendiğini say
+    $updateCount = preg_match_all('/wmsAuthSign=/', $updatedContent);
+    echo "Toplam {$updateCount} link güncellendi.\n";
+} else {
+    die("Hata: M3U dosyası güncellenemedi!");
 }
 ?>
