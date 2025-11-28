@@ -81,6 +81,7 @@ def get_canli_tv_m3u():
 
                 # URL'deki eski token'ı yeni token ile değiştir
                 if current_token:
+                     print(f"🔑 Token okundu: {current_token}")
                     # Eski token'ı bul ve yeni token ile değiştir
                     updated_url = re.sub(
                         r'wmsAuthSign=[^&]*',
