@@ -1,0 +1,27 @@
+name: Update Token
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Her gün gece yarısı (UTC)
+  workflow_dispatch:     # Manuel tetikleme seçeneği
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Run token extractor
+        run: php token_extractor.php
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add token.txt
+          git commit -m "Token otomatik güncelleme: $(date +'%Y-%m-%d %H:%M')"
+          git push
