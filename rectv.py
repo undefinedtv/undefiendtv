@@ -15,9 +15,19 @@ class RecTVUrlFetcher:
                     "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 12)",
                 },
                 json={
-                    "appBuild": "81",
-                    "appInstanceId": "evON8ZdeSr-0wUYxf0qs68",
-                    "appId": "1:791583031279:android:1",
+                  "platformVersion": "25",
+                  "appInstanceId": "e2Gq0zT1SLqaHLtkXw7v-v",
+                  "packageName": "com.rectv.shot",
+                  "appVersion": "19.3",
+                  "countryCode": "TR",
+                  "sdkVersion": "22.0.1",
+                  "appBuild": "104",
+                  "firstOpenTime": "2025-12-21T20:00:00.000Z",
+                  "analyticsUserProperties": {},
+                  "appId": "1:791583031279:android:244c3d507ab299fcabc01a",
+                  "languageCode": "tr-TR",
+                  "appInstanceIdToken": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjE6NzkxNTgzMDMxMjc5OmFuZHJvaWQ6MjQ0YzNkNTA3YWIyOTlmY2FiYzAxYSIsImV4cCI6MTc2Njk1MTYyMSwiZmlkIjoiZTJHcTB6VDFTTHFhSEx0a1h3N3YtdiIsInByb2plY3ROdW1iZXIiOjc5MTU4MzAzMTI3OX0.AB2LPV8wRAIge8m1iAQCvqhxQxGUSpILesnqqgPelVviiQ86dX9V5OICICFmd0bz4Fc069WQUPbIGzdoITI3jVdSE6lmvZMi37Kh",
+                  "timeZone": "Africa\/Nairobi"
                 }
             )
             main_url = response.json().get("entries", {}).get("api_url", "")
